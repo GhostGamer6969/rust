@@ -1,9 +1,14 @@
-use std::io::{self, Write};
+use std::io::{self,Write};
 fn main() {
-    let mut name=String::new();
-    io::stdout().write(b"enter name: ").unwrap();
+    let mut age=String::new();
+    io::stdout().write(b"Enter your age: ").unwrap();
     io::stdout().flush().unwrap();
-    io::stdin().read_line(&mut name).unwrap();
-    println!("Hello, {}!", name.trim());
-    println!("Success!");
+    io::stdin().read_line(&mut age).unwrap();
+    let age:i32=age.trim().parse().unwrap();
+    if age >= 18{
+        println!("you can vote");
+    }
+    else{
+        println!("you cant vote");
+    }
 }
