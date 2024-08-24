@@ -1,7 +1,9 @@
-
+use std::io::{self, Write};
 fn main() {
-    for x in 'a'..='z' {
-        println!("{:b}", x as u16); // :o - octal and :x - hex
-    }
+    let mut name=String::new();
+    io::stdout().write(b"enter name: ").unwrap();
+    io::stdout().flush().unwrap();
+    io::stdin().read_line(&mut name).unwrap();
+    println!("Hello, {}!", name.trim());
     println!("Success!");
 }
