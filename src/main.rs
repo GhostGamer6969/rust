@@ -1,9 +1,17 @@
+use std::io::{self,Write};
 fn main(){
-    let s = sum(1,2);
-    assert!(s == 3);
-    println!("Success");
+    let mut f = String::new();
+    io::stdout().write(b"Enter the number to factorial: ").unwrap();
+    io::stdout().flush().unwrap();
+    io::stdin().read_line(&mut f).unwrap();
+    let f = f.trim().parse().unwrap();
+    println!("{}",fact(f));
 }
 
-fn sum(x:i32,y:i32)-> i32{
-    x+y
+fn fact(f:i32)-> i32{
+    if f == 0{
+        1
+    }else{
+        f*fact(f-1)
+    }
 }
