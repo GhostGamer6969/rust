@@ -1,8 +1,9 @@
 fn main(){
-    let v={
-        let x:i32 = 1;
-        x + 2
-    };
-    assert_eq!(v,3);
-    println!("success");
+    let s = sum(1,2);
+    assert!(s == 3);
+    println!("Success");
+}
+
+fn sum(x:i32,y:i32)-> i32{
+    x+y
 }
